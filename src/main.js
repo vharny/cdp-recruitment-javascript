@@ -1,4 +1,4 @@
-const { filterByAnimalNamePattern, prettifyPrint, formatStartupError } = require("./utils");
+const { filterByAnimalNamePattern, prettifyPrint, formatStartupError, countPeopleAndAnimals } = require("./utils");
 const { MODE } = require("./constants");
 const { data } = require("../data");
 
@@ -21,6 +21,9 @@ const main = (argv = process.argv, countries = data) => {
     } else if (modeArgv?.startsWith(MODE.FILTER)) {
         const pattern = modeArgv.split('=')[1];
         const result = filterByAnimalNamePattern(countries, pattern);
+        prettifyPrint(result);
+    } else if (modeArgv === MODE.COUNT) {
+        const result = countPeopleAndAnimals(countries);
         prettifyPrint(result);
     } else {
         throw new Error(formatStartupError(

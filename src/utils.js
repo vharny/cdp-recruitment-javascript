@@ -23,7 +23,8 @@ const prettifyPrint = (data) => console.log(JSON.stringify(data, null, 2));
  */
 const formatStartupError = (errorMessage) => errorMessage +
     '\n\nExamples:\n' +
-    '$ node app.js --filter=ry\n\n';
+    '$ node app.js --filter=ry\n' +
+    '$ node app.js --count\n\n';
 
 /**
 * Filters a list of countries, people, and animals to keep only people with animals
@@ -57,9 +58,31 @@ const filterByAnimalNamePattern = (countries, pattern) => {
     }, []);
 };
 
+/**
+ * Counts the number of people and their respective animals in the given list of countries.
+ * Appends the counts in the names of countries and people.
+ *
+ * @param {Array} countries - The list of countries containing people and animals to be counted.
+ * @throws {Error} Throws an error if the `countries` parameter is not an array.
+ * @returns {Array} A new list of countries with counts of people and their respective animals appended to their names.
+ */
+const countPeopleAndAnimals = countries => {
+    if (!Array.isArray(countries)) {
+        throw new Error('Countries parameter is not an array.');
+    }
+    return deepCopy(countries).map(country => {
+        country.name = `${country.name} [${country.people.length}]`;
+        country.people.forEach(person => {
+            person.name = `${person.name} [${person.animals.length}]`;
+        });
+        return country;
+    });
+};
+
 module.exports = {
     deepCopy,
     prettifyPrint,
     formatStartupError,
     filterByAnimalNamePattern,
+    countPeopleAndAnimals,
 };
