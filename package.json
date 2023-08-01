@@ -1,0 +1,19 @@
+{
+  "name": "cdp-recruitment-javascript-master",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "author": "Valentin HARNY",
+  "license": "ISC",
+  "devDependencies": {
+    "jest-cucumber": "^3.0.1"
+  },
+  "jest": {
+    "testMatch": [
+      "**/*.steps.js"
+    ]
+  }
+}
