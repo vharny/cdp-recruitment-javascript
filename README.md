@@ -1,5 +1,17 @@
 # Javascript developer test
 
+## Run tests
+
+Run the following commands:
+
+```shell script
+$ npm install
+``````
+
+```shell script
+$ npm test
+``````
+
 ## Filter
 
 Your job is to write a command-line interface in Node.js. 
