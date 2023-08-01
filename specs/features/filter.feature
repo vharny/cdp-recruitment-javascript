@@ -21,4 +21,4 @@ Feature: Filter
     Scenario: Filtering with Non-String Pattern Parameter
         Given an invalid pattern parameter that is not a string "123"
         When the filterByAnimalNamePattern function is called with the countries and the invalid pattern parameter
-        Then the function should throw an error with the message "Pattern parameter must be a non-empty string"
+        Then the function should throw an error with the message "Pattern parameter must be a non-empty string."

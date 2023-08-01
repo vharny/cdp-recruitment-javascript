@@ -40,7 +40,7 @@ const filterByAnimalNamePattern = (countries, pattern) => {
         throw new Error('Countries parameter is not an array.');
     }
     if (!pattern || typeof pattern !== 'string') {
-        throw new Error('Pattern parameter must be a non-empty string');
+        throw new Error('Pattern parameter must be a non-empty string.');
     }
     return deepCopy(countries).reduce((accumulator, country) => {
         const people = [];
@@ -58,6 +58,7 @@ const filterByAnimalNamePattern = (countries, pattern) => {
 };
 
 module.exports = {
+    deepCopy,
     prettifyPrint,
     formatStartupError,
     filterByAnimalNamePattern,

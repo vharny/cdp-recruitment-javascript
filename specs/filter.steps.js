@@ -5,7 +5,7 @@ const { data } = require('../data');
 const feature = loadFeature('specs/features/filter.feature');
 
 defineFeature(feature, test => {
-    test('Filtering with Matching Animal Names', ({ given, when, then, and }) => {
+    test('Filtering with Matching Animal Names', ({ given, when, then }) => {
         let result;
         let countries;
         given('a list of countries containing people and animals', () => {
