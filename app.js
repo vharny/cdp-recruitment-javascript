@@ -1,3 +1,4 @@
 const { main } = require("./src/main");
+const { data } = require("./data");
 
-main();
+main(process.argv, data);

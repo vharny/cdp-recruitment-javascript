@@ -5,13 +5,13 @@ const { data } = require("../data");
 /**
  * The main function of the app.
  *
- * @param {string[]} [argv=process.argv] - An array of command-line arguments passed to the program. (Optional)
- * @param {Array} [countries=data] - The list of countries containing people and animals to be filtered. (Optional)
+ * @param {string[]} - An array of command-line arguments passed to the program.
+ * @param {Array} - The list of countries containing people and animals to be filtered.
  * @throws {Error} Throws an error if no argument is passed to the program.
  * @throws {Error} Throws an error if the provided argument is unknown.
  * @returns {void} This function does not return a value.
  */
-const main = (argv = process.argv, countries = data) => {
+const main = (argv, countries) => {
     const modeArgv = argv[2];
 
     if (!modeArgv) {
@@ -32,4 +32,4 @@ const main = (argv = process.argv, countries = data) => {
     }
 }
 
-module.exports = { main }
+module.exports = { main };

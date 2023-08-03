@@ -43,7 +43,7 @@ defineFeature(feature, test => {
         });
     });
 
-    test('Successful execution', ({ given, when, then }) => {
+    test('Successful execution for filter mode', ({ given, when, then }) => {
         console.log = jest.fn();
         let countries;
         given('a list of countries containing people and animals', () => {
@@ -54,6 +54,21 @@ defineFeature(feature, test => {
         });
         then(/the function should filter animals whose names contain "ry" like "(.*)"$/, (name) => {
             expect(console.log).toHaveBeenCalledWith(expect.stringContaining(name));
+        });
+    });
+
+    test('Successful execution for count mode', ({ given, when, then }) => {
+        console.log = jest.fn();
+        let countries;
+        given('a list of countries containing people and animals', () => {
+            countries = data;
+        });
+        when(/the main function is called with the argument "(.*)"$/, (command) => {
+            main(commandToArgv(command), countries);
+        });
+        then(/the function should count people in country like "(.*)" and person's animals like "(.*)"$/, (people, animals) => {
+            expect(console.log).toHaveBeenCalledWith(expect.stringContaining(people));
+            expect(console.log).toHaveBeenCalledWith(expect.stringContaining(animals));
         });
     });
 });

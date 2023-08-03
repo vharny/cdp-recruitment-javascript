@@ -52,7 +52,7 @@ const filterByAnimalNamePattern = (countries, pattern) => {
             }
         });
         if (people.length > 0) {
-            accumulator.push({ name: country.name, people })
+            accumulator.push({ name: country.name, people });
         }
         return accumulator;
     }, []);
